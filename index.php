@@ -19,51 +19,49 @@
         $(document).ready(function() {
             $('#provinsi').change(function() {
                 var tampung = $(this).val();
-            $.ajax({
-                url:'ambildata.php',
-                method: 'GET',
-                data:{
-                    action:'getKab',
-                    idProv:tampung
-                },
-                success:function (data) {
-                    $('#kab').html(data);
-                }
+                $.ajax({
+                    url:'ambildata.php',
+                    method: 'GET',
+                    data:{
+                        action:'getKab',
+                        idProv:tampung
+                    },
+                    success:function (data) {
+                        $('#kab').html(data);
+                        $('#kab').change();
+                    }
+                });
             });
-            });
-        });
-        // script kabupaten --> kecamatan
-        $(document).ready(function() {
+            // script kabupaten --> kecamatan
             $('#kab').change(function() {
                 var tampung = $(this).val();
-            $.ajax({
-                url:'ambildata.php',
-                method: 'GET',
-                data:{
-                    action:'getKec',
-                    idKab:tampung
-                },
-                success:function (data) {
-                    $('#kec').html(data);
-                }
+                $.ajax({
+                    url:'ambildata.php',
+                    method: 'GET',
+                    data:{
+                        action:'getKec',
+                        idKab:tampung
+                    },
+                    success:function (data) {
+                        $('#kec').html(data);
+                        $('#kec').change();
+                    }
+                });
             });
-            });
-        });
-        // script kecamatan --> desa
-        $(document).ready(function() {
+            // script kecamatan --> desa
             $('#kec').change(function() {
                 var tampung = $(this).val();
-            $.ajax({
-                url:'ambildata.php',
-                method: 'GET',
-                data:{
-                    action:'getDesa',
-                    idDesa:tampung
-                },
-                success:function (data) {
-                    $('#desa').html(data);
-                }
-            });
+                $.ajax({
+                    url:'ambildata.php',
+                    method: 'GET',
+                    data:{
+                        action:'getDesa',
+                        idDesa:tampung
+                    },
+                    success:function (data) {
+                        $('#desa').html(data);
+                    }
+                });
             });
         });
     </script>

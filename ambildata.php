@@ -19,7 +19,7 @@
         $query = 'SELECT * FROM kabupaten WHERE id_provinsi = '.$_GET["idProv"].' ORDER BY nama_kab';
         $result = mysqli_query($koneksi, $query);
         $kabupaten = "";
-        $kabupaten = '<option value="">-- Pilih Kabupaten / Kota --</option>';
+        $kabupaten = '<option value="0">-- Pilih Kabupaten / Kota --</option>';
         while ($row = mysqli_fetch_array($result)) {
             $kabupaten .= '<option value ="'.$row["id_kab"].'">'.$row["nama_kab"].'</option>';
         }
@@ -31,7 +31,7 @@
         $query = 'SELECT * FROM kecamatan WHERE id_kab = '.$_GET["idKab"].' ORDER BY nama_kec';
         $result = mysqli_query($koneksi, $query);
         $kecamatan = "";
-        $kecamatan = '<option value="">-- Pilih Kecamatan --</option>';
+        $kecamatan = '<option value="0">-- Pilih Kecamatan --</option>';
         while ($row = mysqli_fetch_array($result)) {
             $kecamatan .= '<option value ="'.$row["id_kec"].'">'.$row["nama_kec"].'</option>';
         }
@@ -43,7 +43,7 @@
         $query = 'SELECT * FROM desa WHERE id_kec = '.$_GET["idDesa"].' ORDER BY nama_desa';
         $result = mysqli_query($koneksi, $query);
         $desa = "";
-        $desa = '<option value="">-- Pilih Kelurahan / Desa --</option>';
+        $desa = '<option value="0">-- Pilih Kelurahan / Desa --</option>';
         while ($row = mysqli_fetch_array($result)) {
             $desa .= '<option value ="'.$row["id_desa"].'">'.$row["nama_desa"].'</option>';
         }
